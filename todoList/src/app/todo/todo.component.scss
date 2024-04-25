@@ -1,83 +1,115 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4;
 }
 
 .container {
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
 }
 
-h1 {
-    text-align: center;
-    color: #333;
-}
-
+/* Input and Button Styles */
 .input-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom: 20px;
 }
 
-input[type="text"] {
-    width: 80%;
+#taskInput {
+    flex-grow: 1;
     padding: 10px;
-    margin-right: 10px;
     border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-button {
+#addTaskBtn {
     padding: 10px 20px;
-    background-color: #007BFF;
-    color: rgb(255, 255, 255);
+    background-color: #007bff;
+    color: white;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
 }
 
+#addTaskBtn:hover {
+    background-color: #0056b3;
+}
+
+/* Task Section Styles */
 .task-section {
     margin-bottom: 20px;
 }
 
-ul {
+.task-section h2 {
+    margin-bottom: 10px;
+}
+
+.task-section ul {
     list-style-type: none;
     padding: 0;
 }
 
-li {
+.task-section li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ccc;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    border-radius: 4px;
 }
 
-.delete-btn, .edit-btn {
-    background-color: #dc3545;
-    color: white;
-    border: none;
+.task-section li:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Button Container Styles */
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+.button-container button {
+    margin-left: 10px;
     padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
 }
 
 .edit-btn {
+    background-color: #ffc107;
+    color: black;
+}
+
+.edit-btn:hover {
+    background-color: #e0a800;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+.save-btn, .cancel-btn {
     background-color: #28a745;
+    color: white;
 }
 
-/* Styling for the radio button */
-input[type="checkbox"] {
-    margin-right: 10px;
+.save-btn:hover, .cancel-btn:hover {
+    background-color: #218838;
 }
 
+/* Warning Message Styles */
 .warning-message {
-    color: #ff0000; /* Red color for the warning text */
-    font-weight: bold; /* Bold text for emphasis */
-    margin-top: 10px; /* Space above the warning message */
-    padding: 10px; /* Padding around the warning message */
-    border: 1px solid #ff0000; /* Red border around the warning message */
-    border-radius: 5px; /* Rounded corners for the border */
-    background-color: #ffe6e6; /* Light red background color */
+    color: red;
+    margin-bottom: 20px;
 }

@@ -2,8 +2,8 @@
     <div class="container">
         <h1>To-Do App</h1>
         <div class="input-container">
-            <input type="text" id="taskInput" placeholder="Add a task" [(ngModel)]="todoValue">
-            <button type="submit" id="addTaskBtn" (click)="addTodo()" (keyup.enter)="addTodo()" >Add Task</button>
+            <input type="text" id="taskInput" placeholder="Add new task" [(ngModel)]="todoValue">
+            <button type="submit" id="addTaskBtn" (click)="addTodo()" (keyup.enter)="addTodo()">Add Task</button>
         </div>
 
         <div *ngIf="warningMessage" class="warning-message">
@@ -14,10 +14,21 @@
             <h2>To Be Done</h2>
             <ul id="toBeDoneList">
                 <li *ngFor="let task of todoList; let i = index">
-                    <input type="checkbox" [id]="'task' + i" [(ngModel)]="task.value" (ngModelChange)="changeTodo(i)">
-                    <label [for]="'task' + i">{{ task.content }}</label>
-                    <button class="delete-btn" (click)="deleteTodo(i)">Delete</button>
-                    <button class="edit-btn">Edit</button>
+                    <!-- View Mode -->
+                    <div *ngIf="editingTaskIndex !== i">
+                        <input type="checkbox" [id]="'task' + i" [(ngModel)]="task.status" (ngModelChange)="changeTodo(i)">
+                        <label [for]="'task' + i">{{ task.content }}</label>
+                        <div class="button-container">
+                            <button class="edit-btn" (click)="onEdit(i)">Edit</button>
+                            <button class="delete-btn" (click)="deleteTodo(i)">Delete</button>
+                        </div>
+                    </div>
+                    <!-- Edit Mode -->
+                    <div *ngIf="editingTaskIndex === i">
+                        <input type="text" [(ngModel)]="task.content" (keyup.enter)="saveEdit(i)">
+                        <button class="save-btn" (click)="saveEdit(i)">Save</button>
+                        <button class="cancel-btn" (click)="cancelEdit()">Cancel</button>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -25,7 +36,7 @@
             <h2>Completed</h2>
             <ul id="completedList">
                 <li *ngFor="let taskdone of finishedList; let i = index">
-                    <input type="checkbox" [id]="'task' + i" [(ngModel)]="taskdone.value" (ngModelChange)="changeFinished(i)">
+                    <input type="checkbox" [id]="'task' + i" [(ngModel)]="taskdone.status" (ngModelChange)="changeFinished(i)">
                     <label [for]="'task' + i">{{ taskdone.content }}</label>
                     <button class="delete-btn" (click)="deleteFinished(i)">Delete</button>
                 </li>
