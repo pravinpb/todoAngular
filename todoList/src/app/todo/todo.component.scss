@@ -32,7 +32,7 @@ input[type="text"] {
 button {
     padding: 10px 20px;
     background-color: #007BFF;
-    color: white;
+    color: rgb(255, 255, 255);
     border: none;
     cursor: pointer;
 }
@@ -65,4 +65,19 @@ li {
 
 .edit-btn {
     background-color: #28a745;
+}
+
+/* Styling for the radio button */
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.warning-message {
+    color: #ff0000; /* Red color for the warning text */
+    font-weight: bold; /* Bold text for emphasis */
+    margin-top: 10px; /* Space above the warning message */
+    padding: 10px; /* Padding around the warning message */
+    border: 1px solid #ff0000; /* Red border around the warning message */
+    border-radius: 5px; /* Rounded corners for the border */
+    background-color: #ffe6e6; /* Light red background color */
 }
